@@ -1,0 +1,17 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eksworkshop-eksctl
+  region: us-east-1
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: 3
+  iam:
+    withAddonPolicies:
+      albIngress: true
+
+secretsEncryption:
+  keyARN: arn:aws:iam::568885639727:user/demo-eks
